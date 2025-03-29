@@ -1,0 +1,42 @@
+Table Structures :
+
+1. Customer Contact Information
+create table cust_cont(
+    id BIGINT PRIMARY KEY,  
+    customer_id BIGINT NOT NULL,
+    type INT NOT NULL,
+    value VARCHAR(255) NOT NULL,
+    effective_date DATETIME NOT NULL
+);
+------------------------------------
+2. Customer Proof
+create table cust_proof(
+    id BIGINT PRIMARY KEY ,
+    customer_id BIGINT NOT NULL,
+    type INT NOT NULL,
+    value VARCHAR(255) NOT NULL,
+    effective_date DATETIME NOT NULL,
+    start_date DATETIME NOT NULL,
+    end_date DATETIME NOT NULL
+);
+-------------------------------------
+3. Customer Identification
+create table cust_identi(
+id BIGINT PRIMARY KEY, 
+    customer_id BIGINT NOT NULL, 
+    type INT NOT NULL, 
+    item VARCHAR(255) NOT NULL, 
+    effective_date DATETIME NOT NULL);
+-------------------------------------
+4. Customer Details 
+CREATE TABLE cust_det (
+    id BIGINT PRIMARY KEY,
+    type VARCHAR(100) NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
+    date_of_birth VARCHAR(50),
+    status VARCHAR(50),
+    mobile_no VARCHAR(20),
+    email_id VARCHAR(255) UNIQUE,
+    country_origin VARCHAR(100),
+    effective_date DATETIME NOT NULL
+);
