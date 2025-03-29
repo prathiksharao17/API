@@ -69,3 +69,10 @@ Springboot-Mysql-Project/
 | POST       | `/api/customer-proof-of-id`           | Create a new customer proof        |
 | PUT        | `/api/customer-proof-of-id/{id}`      | Update customer proof              |
 | DELETE     | `/api/customer-proof-of-id/{id}`      | Delete customer proof              |
+
+## Localhost Output Screenshots
+- The application runs on `localhost:8080`.
+- Below are screenshots of API responses
+
+## Customer Proof Of ID API Response
+![API Response](Screenshot2025-03-29225311.png)
