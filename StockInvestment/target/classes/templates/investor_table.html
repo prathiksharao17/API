@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Investor List</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        form { margin-bottom: 20px; }
+        input[type="text"] { padding: 5px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h2>Investor List</h2>
+
+    <!-- Search form -->
+    <form action="/investor-table" method="get">
+        <!-- Pre-fill the search input with the current search name -->
+        <input type="text" name="name" placeholder="Search by name" th:value="${searchName}" />
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Stock Name</th>
+                <th>Investment Amount</th>
+                <th>Investment Date</th>
+                <th>Created By</th>
+                <th>Updated By</th>
+                <th>Deleted By</th>
+                <th>Date Created</th>
+                <th>Date Updated</th>
+                <th>Date Deleted</th>
+                <th>Version</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="investor : ${investors}">
+                <td th:text="${investor.id}">1</td>
+                <td th:text="${investor.name}">John</td>
+                <td th:text="${investor.email}">john@example.com</td>
+                <td th:text="${investor.stockName}">AAPL</td>
+                <td th:text="${investor.investmentAmount}">10000</td>
+                <td th:text="${#dates.format(investor.investmentDate, 'yyyy-MM-dd')}">2024-01-01</td>
+                <td th:text="${investor.createdBy}">Admin</td>
+                <td th:text="${investor.updatedBy}">Editor</td>
+                <td th:text="${investor.deletedBy}">-</td>
+                <td th:text="${#dates.format(investor.dateCreated, 'yyyy-MM-dd')}">2024-01-01</td>
+                <td th:text="${#dates.format(investor.dateUpdated, 'yyyy-MM-dd')}">2024-01-02</td>
+                <td th:text="${investor.dateDeleted != null ? #dates.format(investor.dateDeleted, 'yyyy-MM-dd') : '-'}">-</td>
+                <td th:text="${investor.version}">v1.0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
